@@ -19,7 +19,7 @@ It also contains categorical variables `model` and `region`.
 
 There were 6 missing values in `power_hp`. These rows were removed before fitting the models, leaving 392 observations. This represents approximately 1.51% of the original dataset.
 
-## 2. Step 3 — Simple Linear Regression
+## 2. Simple Linear Regression
 
 The numerical feature most strongly correlated with fuel efficiency was `mass_kg`.
 
@@ -39,7 +39,7 @@ For a car with a mass of 1500 kg, the predicted fuel efficiency was approximatel
 
 The scatter plot and regression line are included in the repository.
 
-## 3. Step 4 — Model Evaluation
+## 3. Model Evaluation
 
 The dataset was divided into training and test sets using an 80/20 split with `random_state=2305`.
 
@@ -67,7 +67,7 @@ The mean test R² was **0.6782**, with a standard deviation of **0.0175**.
 
 Training performance alone is not sufficient because a model can perform well on the data used for training but perform worse on unseen data. Test evaluation and cross-validation provide a better estimate of how well the model generalizes.
 
-## 4. Step 5 — Multiple Linear Regression
+## 4. Multiple Linear Regression
 
 Features were added one group at a time, starting with the feature with the strongest correlation.
 
@@ -84,7 +84,7 @@ The R² value did not improve after adding every feature. Adding `cylinders` sli
 
 This shows that adding more features does not necessarily improve model performance. Some features may provide limited additional information or overlap with information already captured by other variables.
 
-## 5. Step 6 — Polynomial Regression
+## 5. Polynomial Regression
 
 Polynomial regression models with degrees from 1 to 5 were evaluated.
 
@@ -100,7 +100,7 @@ The highest test R² was obtained with **degree 2**, with a value of **0.7027**.
 
 After degree 2, the training R² continued to increase, while the test R² decreased. This indicates that higher-degree polynomial models begin to overfit the training data. Increasing the model complexity beyond degree 2 therefore did not improve generalization.
 
-## 6. Step 7 — Conclusion
+## 6. Conclusion
 
 Among the models evaluated in Steps 3–6, I would use the multiple linear regression model with the features `mass_kg`, `engine_litres`, `power_hp`, `cylinders`, and `year` for predicting the fuel efficiency of a new car. This model achieved the highest mean test R² in the experiments, with a 5-fold cross-validation R² of 0.7944. This means that the model explained a larger proportion of the variation in fuel efficiency than the simple linear and polynomial models tested in this laboratory.
 
