@@ -138,8 +138,6 @@ test_mse = mean_squared_error(y_test, y_test_pred)
 test_rmse = test_mse ** 0.5
 test_r2 = r2_score(y_test, y_test_pred)
 
-print("\nStep 4 - Model Evaluation")
-
 print("\nTraining results:")
 print(f"MAE:  {train_mae:.4f}")
 print(f"MSE:  {train_mse:.4f}")
@@ -220,7 +218,6 @@ for i in range(1, len(feature_order) + 1):
 
 multiple_results = pd.DataFrame(results)
 
-print("\nStep 5 - Multiple Linear Regression:")
 print(multiple_results.to_string(index=False))
 
 from sklearn.pipeline import make_pipeline
@@ -239,14 +236,11 @@ for degree in range(1, 6):
         LinearRegression()
     )
 
-    # Train the model
     pipe.fit(X_train, y_train)
 
-    # Training R²
     train_pred = pipe.predict(X_train)
     train_r2 = r2_score(y_train, train_pred)
 
-    # 5-fold CV Test R²
     cv_scores = cross_val_score(
         pipe,
         X,
@@ -265,5 +259,4 @@ for degree in range(1, 6):
 
 polynomial_results = pd.DataFrame(polynomial_results)
 
-print("\nStep 6 - Polynomial Regression:")
 print(polynomial_results.to_string(index=False))
