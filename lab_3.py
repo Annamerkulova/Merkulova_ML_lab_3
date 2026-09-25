@@ -103,14 +103,6 @@ print("\nPrediction:")
 print(f"For a car with mass {chosen_mass} kg:")
 print(f"Predicted fuel efficiency: {prediction[0]:.2f} km/L")
 
-chosen_mass = 1500
-
-prediction = model.predict([[chosen_mass]])
-
-print("\nPrediction:")
-print(f"For a car with mass {chosen_mass} kg:")
-print(f"Predicted fuel efficiency: {prediction[0]:.2f} km/L")
-
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
